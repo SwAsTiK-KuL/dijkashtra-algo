@@ -101,7 +101,7 @@ const MapView = () => {
             const B = markers[1].position;
 
             try {
-                const response = await axios.get(`http://router.project-osrm.org/route/v1/driving/${A[1]},${A[0]};${B[1]},${B[0]}?overview=full&geometries=geojson`);
+                const response = await axios.get(`https://router.project-osrm.org/route/v1/driving/${A[1]},${A[0]};${B[1]},${B[0]}?overview=full&geometries=geojson`);
                 const coordinates = response.data.routes[0].geometry.coordinates;
                 const pathPositions = coordinates.map(coord => [coord[1], coord[0]]);
                 const routeDistance = response.data.routes[0].distance / 1000; 
